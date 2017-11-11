@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Stylet.Xaml;
 
 namespace Solid.Arduino.Monitor
@@ -18,7 +12,15 @@ namespace Solid.Arduino.Monitor
         /// <param name="e">A <see cref="T:System.Windows.StartupEventArgs" /> that contains the event data.</param>
         protected override void OnStartup(StartupEventArgs e)
         {
-            Resources.Add(typeof(ApplicationLoader), new ApplicationLoader { Bootstrapper = new Bootstrapper() });
+            //var appLoader = new ApplicationLoader
+            //{
+            //    Bootstrapper = new Bootstrapper(),
+            //    LoadStyletResources = true
+            //};
+            //Resources = appLoader;
+            ////Resources.MergedDictionaries.Add(appLoader);
+
+            //Resources.MergedDictionaries.Add(new AppResources());
 
             base.OnStartup(e);
         }
