@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Solid.Arduino.Monitor.Pages.ConnectionStateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Solid.Arduino.Monitor.Pages"
+             xmlns:wt="https://github.com/algel/WpfToolset"
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance local:ConnectionStateViewModel}"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <GroupBox Header="{Binding DisplayName}">
+        <wt:StackGrid AutogenerateRows="True" ColumnDefinitionsScript="Auto;100;Auto;100;[2]Auto;*">
+            <Label Target="{x:Reference tPort}">Port</Label>
+            <TextBox x:Name="tPort" MaxLength="4" Text="{Binding ConnectionPort, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label Target="{x:Reference tBaudRate}">Baud rate</Label>
+            <ComboBox x:Name="tBaudRate" ItemsSource="{Binding BaudRateCollection}" />
+
+            <Button Command="{Binding ConnectCommand}">Connect</Button>
+            <Button Command="{Binding DisconnectCommand}">Disconnect</Button>
+        </wt:StackGrid>
+    </GroupBox>
+</UserControl>
